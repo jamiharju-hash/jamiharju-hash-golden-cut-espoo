@@ -40,11 +40,11 @@ export default function Dashboard() {
             Premium Barber Shop & Styling in Espoo. Managing bookings, inventory, and gift cards with class.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0">
-              <Link to="/appointments">Manage Appointments</Link>
+            <Button render={<Link to="/appointments" />} className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0">
+              Manage Appointments
             </Button>
-            <Button asChild variant="outline" className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white">
-              <Link to="/products">View Inventory</Link>
+            <Button render={<Link to="/products" />} variant="outline" className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white">
+              View Inventory
             </Button>
           </div>
         </div>

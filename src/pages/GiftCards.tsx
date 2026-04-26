@@ -47,10 +47,8 @@ export default function GiftCards() {
              <CheckCircle2 className="w-4 h-4 mr-2" /> Validate Code
           </Button>
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogTrigger asChild>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold border-0">
-                <Plus className="w-4 h-4 mr-2" /> Issue Gift Card
-              </Button>
+            <DialogTrigger render={<Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold border-0" />}>
+              <Plus className="w-4 h-4 mr-2" /> Issue Gift Card
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>

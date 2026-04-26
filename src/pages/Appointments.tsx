@@ -50,10 +50,8 @@ export default function Appointments() {
         </div>
         
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0">
-              <Plus className="w-4 h-4 mr-2" /> New Appointment
-            </Button>
+          <DialogTrigger render={<Button className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0" />}>
+            <Plus className="w-4 h-4 mr-2" /> New Appointment
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
@@ -84,14 +82,9 @@ export default function Appointments() {
                 <div className="space-y-2">
                   <Label>Date</Label>
                   <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant={"outline"}
-                        className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {date ? format(date, "PPP") : <span>Pick a date</span>}
-                      </Button>
+                    <PopoverTrigger render={<Button variant="outline" className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")} />}>
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0">
                       <Calendar

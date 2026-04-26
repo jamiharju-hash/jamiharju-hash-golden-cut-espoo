@@ -35,10 +35,8 @@ export default function Inventory() {
         </div>
         
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0">
-              <Plus className="w-4 h-4 mr-2" /> Add Product
-            </Button>
+          <DialogTrigger render={<Button className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold border-0" />}>
+            <Plus className="w-4 h-4 mr-2" /> Add Product
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
