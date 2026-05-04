@@ -6,131 +6,36 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-display);
-    --font-sans: var(--font-body);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+  --font-heading: var(--font-display);
+  --font-sans: var(--font-body);
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  --color-card: #101010;
+  --color-card-foreground: #ffffff;
+  --color-popover: #101010;
+  --color-popover-foreground: #ffffff;
+  --color-primary: #f4c542;
+  --color-primary-foreground: #050505;
+  --color-secondary: #161616;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #161616;
+  --color-muted-foreground: #b9b9b9;
+  --color-accent: #f4c542;
+  --color-accent-foreground: #050505;
+  --color-border: rgba(244, 197, 66, 0.24);
+  --color-input: rgba(244, 197, 66, 0.24);
+  --color-ring: #f4c542;
+  --radius-sm: 0.45rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.875rem;
 }
 
 :root {
-    --font-display: 'Bricolage Grotesque', ui-sans-serif, sans-serif;
-    --font-body: 'Space Grotesk', ui-sans-serif, sans-serif;
-    --ink: #030302;
-    --charcoal: #090806;
-    --coffee: #14100b;
-    --smoke: #211a12;
-    --bone: #fffaf0;
-    --soft: #e6dcc8;
-    --champagne: #d9bf7d;
-    --brass: #b08b4a;
-    --brass-deep: #70542c;
-    --brass-soft: rgba(217, 191, 125, 0.32);
-    --oxblood: #180706;
-    --muted: #c0b6a5;
-    --line: rgba(217, 191, 125, 0.24);
-    --header-line: rgba(217, 191, 125, 0.18);
-    --background: oklch(0.052 0.004 70);
-    --foreground: oklch(0.975 0.022 86);
-    --card: oklch(0.115 0.012 65);
-    --card-foreground: oklch(0.975 0.022 86);
-    --popover: oklch(0.115 0.012 65);
-    --popover-foreground: oklch(0.975 0.022 86);
-    --primary: oklch(0.69 0.078 78);
-    --primary-foreground: oklch(0.052 0.004 70);
-    --secondary: oklch(0.18 0.016 62);
-    --secondary-foreground: oklch(0.975 0.022 86);
-    --muted-token: oklch(0.18 0.016 62);
-    --muted-foreground: oklch(0.78 0.026 82);
-    --accent: oklch(0.69 0.078 78);
-    --accent-foreground: oklch(0.052 0.004 70);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.84 0.04 82 / 22%);
-    --input: oklch(0.84 0.04 82 / 24%);
-    --ring: oklch(0.69 0.078 78);
-    --chart-1: oklch(0.82 0.04 82);
-    --chart-2: oklch(0.62 0.035 82);
-    --chart-3: oklch(0.45 0.026 76);
-    --chart-4: oklch(0.32 0.018 70);
-    --chart-5: oklch(0.23 0.012 70);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.115 0.012 65);
-    --sidebar-foreground: oklch(0.975 0.022 86);
-    --sidebar-primary: oklch(0.69 0.078 78);
-    --sidebar-primary-foreground: oklch(0.052 0.004 70);
-    --sidebar-accent: oklch(0.18 0.016 62);
-    --sidebar-accent-foreground: oklch(0.975 0.022 86);
-    --sidebar-border: oklch(0.84 0.04 82 / 22%);
-    --sidebar-ring: oklch(0.69 0.078 78);
-}
-
-.dark {
-    --background: oklch(0.052 0.004 70);
-    --foreground: oklch(0.975 0.022 86);
-    --card: oklch(0.115 0.012 65);
-    --card-foreground: oklch(0.975 0.022 86);
-    --popover: oklch(0.115 0.012 65);
-    --popover-foreground: oklch(0.975 0.022 86);
-    --primary: oklch(0.69 0.078 78);
-    --primary-foreground: oklch(0.052 0.004 70);
-    --secondary: oklch(0.18 0.016 62);
-    --secondary-foreground: oklch(0.975 0.022 86);
-    --muted: oklch(0.18 0.016 62);
-    --muted-foreground: oklch(0.78 0.026 82);
-    --accent: oklch(0.69 0.078 78);
-    --accent-foreground: oklch(0.052 0.004 70);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(0.84 0.04 82 / 22%);
-    --input: oklch(0.84 0.04 82 / 24%);
-    --ring: oklch(0.69 0.078 78);
-    --chart-1: oklch(0.82 0.04 82);
-    --chart-2: oklch(0.62 0.035 82);
-    --chart-3: oklch(0.45 0.026 76);
-    --chart-4: oklch(0.32 0.018 70);
-    --chart-5: oklch(0.23 0.012 70);
-    --sidebar: oklch(0.115 0.012 65);
-    --sidebar-foreground: oklch(0.975 0.022 86);
-    --sidebar-primary: oklch(0.69 0.078 78);
-    --sidebar-primary-foreground: oklch(0.052 0.004 70);
-    --sidebar-accent: oklch(0.18 0.016 62);
-    --sidebar-accent-foreground: oklch(0.975 0.022 86);
-    --sidebar-border: oklch(0.84 0.04 82 / 22%);
-    --sidebar-ring: oklch(0.69 0.078 78);
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, sans-serif;
+  --font-body: 'Space Grotesk', ui-sans-serif, sans-serif;
 }
 
 @layer base {
@@ -141,16 +46,14 @@
   html {
     scroll-behavior: smooth;
     font-family: var(--font-body);
-    background: var(--ink);
+    background: #050505;
   }
 
   body {
-    background:
-      radial-gradient(circle at 20% 8%, rgba(24, 7, 6, 0.18), transparent 34%),
-      linear-gradient(180deg, #030302 0%, #050403 100%);
-    color: var(--bone);
     min-width: 320px;
     overflow-x: hidden;
+    background: #050505;
+    color: #ffffff;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -160,17 +63,16 @@
     scroll-margin-top: 96px;
   }
 
-  main > section:not(#etusivu) {
-    padding-top: clamp(5.75rem, 7vw, 7.5rem) !important;
-    padding-bottom: clamp(5.75rem, 7vw, 7.5rem) !important;
-  }
-
   ::selection {
-    background: rgba(176, 139, 74, 0.36);
-    color: var(--bone);
+    background: rgba(244, 197, 66, 0.32);
+    color: #050505;
   }
 
-  a, button, input, textarea, select {
+  a,
+  button,
+  input,
+  textarea,
+  select {
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -187,220 +89,30 @@
 
   .premium-hero {
     background:
-      radial-gradient(circle at 16% 20%, rgba(117, 88, 46, 0.10), transparent 32%),
-      radial-gradient(circle at 86% 8%, rgba(26, 8, 6, 0.20), transparent 36%),
-      linear-gradient(135deg, var(--ink) 0%, #070604 52%, #0b0806 100%);
+      radial-gradient(circle at 14% 18%, rgba(244, 197, 66, 0.10), transparent 31%),
+      radial-gradient(circle at 88% 10%, rgba(214, 162, 31, 0.06), transparent 34%),
+      linear-gradient(135deg, #050505 0%, #0a0a0a 52%, #060606 100%);
   }
 
-  .premium-card {
-    border: 1px solid var(--line);
+  .hero-depth {
     background:
-      linear-gradient(180deg, rgba(255, 250, 240, 0.045), transparent 52%),
-      linear-gradient(135deg, rgba(20, 16, 11, 0.99), rgba(5, 4, 3, 0.99));
-    box-shadow:
-      inset 0 1px 0 rgba(255, 250, 240, 0.06),
-      0 22px 56px rgba(0, 0, 0, 0.22);
+      radial-gradient(circle at 12% 20%, rgba(244, 197, 66, 0.08), transparent 32%),
+      radial-gradient(circle at 88% 8%, rgba(214, 162, 31, 0.06), transparent 36%);
   }
 
-  .premium-fact {
-    background: rgba(3, 3, 2, 0.82);
-    box-shadow: inset 0 1px 0 rgba(255, 250, 240, 0.055);
+  .surface-card {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.052), transparent 54%),
+      linear-gradient(135deg, rgba(18, 18, 18, 0.99), rgba(5, 5, 5, 0.995));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 22px 56px rgba(0, 0, 0, 0.24);
   }
 
   .premium-cta {
-    background: linear-gradient(135deg, #e2cc8c 0%, #b08b4a 48%, #70542c 100%);
+    background: linear-gradient(135deg, #ffe070 0%, #f4c542 45%, #b8860b 100%);
     box-shadow:
-      0 14px 30px rgba(117, 88, 46, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.36);
-  }
-
-  .gold-noise {
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(117, 88, 46, 0.06), transparent 28%),
-      linear-gradient(180deg, var(--ink) 0%, #080604 100%);
-  }
-}
-
-/* Production polish: header, wordmark and navigation */
-header {
-  background:
-    linear-gradient(180deg, rgba(3, 3, 2, 0.98), rgba(3, 3, 2, 0.92)) !important;
-  border-bottom-color: var(--header-line) !important;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-}
-
-header > div:first-child {
-  height: 5rem !important;
-}
-
-header a[aria-label="Golden Cut etusivu"] {
-  gap: 1rem !important;
-  padding: 0.38rem 0.25rem 0.38rem 0 !important;
-}
-
-header a[aria-label="Golden Cut etusivu"] > span:first-child {
-  position: relative;
-  width: 3.25rem !important;
-  height: 3.25rem !important;
-  border-radius: 1rem !important;
-  border-color: rgba(217, 191, 125, 0.34) !important;
-  background:
-    linear-gradient(145deg, rgba(35, 28, 18, 0.96), rgba(6, 5, 4, 0.98)) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 250, 240, 0.08),
-    0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-header a[aria-label="Golden Cut etusivu"] > span:first-child svg {
-  opacity: 0;
-}
-
-header a[aria-label="Golden Cut etusivu"] > span:first-child::before {
-  content: "GC";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  color: var(--champagne);
-}
-
-header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
-  color: var(--bone) !important;
-  font-size: 1.22rem !important;
-  letter-spacing: 0.22em !important;
-  line-height: 1 !important;
-}
-
-header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
-  color: var(--soft) !important;
-  font-size: 0.67rem !important;
-  letter-spacing: 0.36em !important;
-  opacity: 0.72;
-}
-
-header nav {
-  gap: 0.25rem !important;
-  padding: 0.35rem !important;
-  border: 1px solid rgba(217, 191, 125, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 250, 240, 0.035);
-  box-shadow: inset 0 1px 0 rgba(255, 250, 240, 0.035);
-}
-
-header nav a {
-  padding: 0.55rem 0.82rem;
-  border-radius: 999px;
-  color: var(--soft) !important;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-header nav a:hover {
-  color: var(--bone) !important;
-  background: rgba(217, 191, 125, 0.10);
-}
-
-header a[aria-label="Instagram"],
-header button[aria-label="Avaa valikko"] {
-  width: 3rem !important;
-  height: 3rem !important;
-  border-radius: 1rem !important;
-  border-color: rgba(217, 191, 125, 0.18) !important;
-  background: rgba(255, 250, 240, 0.035) !important;
-  color: var(--soft) !important;
-}
-
-header a[aria-label="Instagram"]:hover,
-header button[aria-label="Avaa valikko"]:hover {
-  color: var(--champagne) !important;
-  border-color: rgba(217, 191, 125, 0.34) !important;
-  background: rgba(217, 191, 125, 0.08) !important;
-}
-
-#etusivu > div.pointer-events-none {
-  background:
-    radial-gradient(circle at 14% 22%, rgba(117, 88, 46, 0.13), transparent 31%),
-    radial-gradient(circle at 82% 10%, rgba(24, 7, 6, 0.24), transparent 36%) !important;
-}
-
-#etusivu h1,
-section h2 {
-  color: var(--bone) !important;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-
-#etusivu p,
-section p {
-  color: var(--soft);
-}
-
-.premium-fact,
-.premium-card {
-  border-color: rgba(217, 191, 125, 0.22) !important;
-}
-
-.premium-fact {
-  color: var(--soft) !important;
-}
-
-@media (max-width: 640px) {
-  header > div:first-child {
-    height: 5.75rem !important;
-  }
-
-  header a[aria-label="Golden Cut etusivu"] > span:first-child {
-    width: 3.5rem !important;
-    height: 3.5rem !important;
-  }
-
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
-    font-size: 1.18rem !important;
-    letter-spacing: 0.24em !important;
-  }
-
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
-    font-size: 0.66rem !important;
-    letter-spacing: 0.36em !important;
-  }
-
-  header button[aria-label="Avaa valikko"] {
-    width: 3.55rem !important;
-    height: 3.55rem !important;
-    border-radius: 1.2rem !important;
-  }
-
-  main > section {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
-
-  #etusivu {
-    padding-top: 6.25rem !important;
-    padding-bottom: 8rem !important;
-  }
-
-  #etusivu h1 {
-    font-size: clamp(2.75rem, 11vw, 3.85rem) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.052em !important;
-  }
-
-  #etusivu p {
-    color: var(--soft) !important;
-    line-height: 1.85 !important;
-  }
-
-  main > section:not(#etusivu) {
-    padding-top: 5.75rem !important;
-    padding-bottom: 5.75rem !important;
-  }
-
-  .premium-card {
-    border-color: rgba(217, 189, 122, 0.25) !important;
+      0 14px 30px rgba(244, 197, 66, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.46);
   }
 }
