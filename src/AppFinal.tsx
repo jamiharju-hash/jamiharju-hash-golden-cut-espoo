@@ -1,8 +1,10 @@
 import {
+  CalendarDays,
   Car,
   CheckCircle2,
   Clock,
   Instagram,
+  Mail,
   MapPin,
   Menu,
   Phone,
@@ -18,6 +20,8 @@ import { trackEvent } from "./lib/analytics";
 
 const phoneDisplay = "040 058 8484";
 const phoneHref = "tel:+358400588484";
+const email = "Goldencutparturi@gmail.com";
+const emailHref = "mailto:Goldencutparturi@gmail.com";
 const address = "Kirkkojärventie 10 B, 02770 Espoo";
 const mapsUrl = "https://maps.app.goo.gl/5Q13WYSJaTtNGvio9";
 const instagramUrl = "https://www.instagram.com/goldencut_parturi/";
@@ -27,9 +31,9 @@ const heroPhoto = verifiedWorkPhotos[0];
 
 const nav = [
   ["#palvelut", "Palvelut"],
+  ["#ajanvaraus", "Ajanvaraus"],
   ["#hinnasto", "Hinnasto"],
   ["#tuotteet", "Tuotteet"],
-  ["#kuvat", "Kuvat"],
   ["#sijainti", "Sijainti"],
 ] as const;
 
@@ -51,9 +55,9 @@ const products = [
 ] as const;
 
 const faqs = [
-  ["Tarvitseeko ajanvarauksen?", "Ei. Golden Cut palvelee ilman ajanvarausta."],
+  ["Tarvitseeko ajanvarauksen?", "Voit tulla ilman ajanvarausta. Jos haluat varmistaa sopivan ajan, kysy nopeasti soittamalla tai Instagramissa."],
   ["Missä liike sijaitsee?", "Kirkkojärventie 10 B, aivan Espoon juna-aseman vieressä."],
-  ["Miten saan nopeimmin yhteyden?", "Soittamalla tai Instagramin kautta. Liike vastaa sosiaalisessa mediassa nopeasti."],
+  ["Miten saan nopeimmin yhteyden?", "Soittamalla tai Instagramin kautta. Sähköposti on käytössä myös virallisia asioita varten."],
   ["Mitä palveluita teette?", "Miesten leikkaukset, skin fade, mid fade, taper fade, partapalvelut ja lasten leikkaukset."],
 ] as const;
 
@@ -79,9 +83,18 @@ function PrimaryCta({ source, className = "" }: { source: string; className?: st
   );
 }
 
+function BookingCta({ source, className = "" }: { source: string; className?: string }) {
+  return (
+    <motion.a href={phoneHref} onClick={() => trackPhone(source)} whileTap={{ scale: 0.985 }} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--brass-soft)] bg-[rgba(255,255,255,0.045)] px-6 py-3 text-sm font-black text-[var(--bone)] ${className}`}>
+      <CalendarDays className="h-4 w-4 text-[var(--champagne)]" />
+      Kysy aikaa
+    </motion.a>
+  );
+}
+
 function PhoneCta({ source, className = "" }: { source: string; className?: string }) {
   return (
-    <motion.a href={phoneHref} onClick={() => trackPhone(source)} whileTap={{ scale: 0.985 }} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--brass-soft)] bg-[rgba(12,10,8,0.82)] px-6 py-3 text-sm font-black text-[var(--champagne)] ${className}`}>
+    <motion.a href={phoneHref} onClick={() => trackPhone(source)} whileTap={{ scale: 0.985 }} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--brass-soft)] bg-[rgba(255,255,255,0.045)] px-6 py-3 text-sm font-black text-[var(--champagne)] ${className}`}>
       <Phone className="h-4 w-4" />
       Soita {phoneDisplay}
     </motion.a>
@@ -90,7 +103,7 @@ function PhoneCta({ source, className = "" }: { source: string; className?: stri
 
 function SocialCta({ className = "" }: { className?: string }) {
   return (
-    <a href={instagramUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_instagram", { source: "social_cta" })} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-[rgba(255,250,242,0.045)] px-6 py-3 text-sm font-black text-[var(--bone)] ${className}`}>
+    <a href={instagramUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_instagram", { source: "social_cta" })} className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.045)] px-6 py-3 text-sm font-black text-[var(--bone)] ${className}`}>
       <Instagram className="h-4 w-4 text-[var(--champagne)]" />
       Viesti Instagramissa
     </a>
@@ -134,6 +147,7 @@ function Header() {
         </nav>
         <div className="hidden items-center gap-2 md:flex">
           <a href={instagramUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_instagram", { source: "header" })} className="icon-button" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
+          <BookingCta source="header_booking" className="hidden xl:inline-flex" />
           <PrimaryCta source="header" className="hidden xl:inline-flex" />
         </div>
         <button className="icon-button lg:hidden" onClick={() => setOpen(!open)} aria-label="Avaa valikko">{open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}</button>
@@ -143,7 +157,7 @@ function Header() {
           <div className="mx-auto grid max-w-7xl gap-2">
             {nav.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
             <a href="#yhteystiedot" onClick={() => setOpen(false)}>Yhteystiedot</a>
-            <div className="grid gap-2 pt-2 sm:grid-cols-2"><PrimaryCta source="mobile_menu" /><PhoneCta source="mobile_menu" /></div>
+            <div className="grid gap-2 pt-2 sm:grid-cols-2"><PrimaryCta source="mobile_menu" /><BookingCta source="mobile_booking" /></div>
           </div>
         </motion.div>
       )}
@@ -159,10 +173,10 @@ function Hero() {
         <motion.div variants={reveal} initial="hidden" animate="visible" className="max-w-4xl">
           <div className="trust-badge mb-6 inline-flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.7/5 Google • yli 300 arvostelua</div>
           <h1 className="font-display text-4xl font-black leading-[1.01] tracking-[-0.055em] text-[var(--bone)] sm:text-6xl lg:text-7xl">Espoon keskuksen luottoparturi — ilman ajanvarausta.</h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--soft)] sm:text-lg">Nopea, tarkka ja helposti saavutettava miesten parturi Espoon juna-aseman vieressä. Miesten leikkaukset, skin fade, mid fade, taper fade ja partapalvelut reilulla hinnalla.</p>
-          <div className="mt-8 grid gap-3 sm:flex"><PrimaryCta source="hero" /><PhoneCta source="hero" /></div>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--soft)] sm:text-lg">Nopea, tarkka ja helposti saavutettava miesten parturi Espoon juna-aseman vieressä. Voit tulla suoraan sisään tai kysyä aikaa puhelimella ja Instagramissa.</p>
+          <div className="mt-8 grid gap-3 sm:flex"><PrimaryCta source="hero" /><BookingCta source="hero_booking" /><PhoneCta source="hero" /></div>
           <div className="mt-8 grid gap-3 text-sm sm:grid-cols-2">
-            {[[Clock, "Ma–la 10–19, su 11–18"], [Train, "Espoon aseman vieressä"], [CheckCircle2, "Palvelu ilman ajanvarausta"], [Car, "Ilmainen pysäköinti lähellä"]].map(([Icon, text]) => <div key={String(text)} className="premium-fact flex items-center gap-2 rounded-2xl border p-3"><Icon className="h-4 w-4 shrink-0 text-[var(--champagne)]" />{String(text)}</div>)}
+            {[[Clock, "Ma–la 10–19, su 11–18"], [Train, "Espoon aseman vieressä"], [CalendarDays, "Ajan voi kysyä etukäteen"], [Car, "Ilmainen pysäköinti lähellä"]].map(([Icon, text]) => <div key={String(text)} className="premium-fact flex items-center gap-2 rounded-2xl border p-3"><Icon className="h-4 w-4 shrink-0 text-[var(--champagne)]" />{String(text)}</div>)}
           </div>
         </motion.div>
         <motion.a href={heroPhoto.sourceUrl} target="_blank" rel="noreferrer" onClick={() => trackMaps("hero_google_photo")} initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }} className="hero-media hidden overflow-hidden rounded-[2rem] lg:block">
@@ -178,16 +192,16 @@ function Hero() {
 }
 
 function QuickPaths() {
-  const paths = [[MapPin, "Walk-in", "Tule suoraan paikan päälle ilman ajanvarausta.", "Katso sijainti", mapsUrl], [Instagram, "Nopea yhteys", "Golden Cutin tavoittaa nopeasti sosiaalisen median kautta.", "Avaa Instagram", instagramUrl], [Phone, "Soitto", "Soita liikkeeseen, jos olet tulossa juuri ennen sulkemisaikaa.", "Soita nyt", phoneHref]] as const;
-  return <section className="section-surface px-4 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">{paths.map(([Icon, title, text, cta, href]) => <motion.a key={title} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} whileHover={{ y: -4 }} className="premium-card rounded-3xl p-6"><Icon className="mb-4 h-6 w-6 text-[var(--champagne)]" /><h3 className="font-display text-xl font-black text-[var(--bone)]">{title}</h3><p className="mt-2 text-sm leading-7 text-[var(--soft)]">{text}</p><p className="mt-4 text-sm font-black text-[var(--champagne)]">{cta} →</p></motion.a>)}</div></section>;
+  const paths = [[MapPin, "Walk-in", "Tule suoraan paikan päälle ilman ajanvarausta.", "Katso sijainti", mapsUrl], [CalendarDays, "Ajanvaraus", "Jos haluat varmistaa sopivan ajan, kysy nopeasti puhelimitse.", "Kysy aikaa", phoneHref], [Instagram, "Nopea yhteys", "Golden Cutin tavoittaa nopeasti sosiaalisen median kautta.", "Avaa Instagram", instagramUrl]] as const;
+  return <section id="ajanvaraus" className="section-surface px-4 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">{paths.map(([Icon, title, text, cta, href]) => <motion.a key={title} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} whileHover={{ y: -4 }} className="premium-card rounded-3xl p-6"><Icon className="mb-4 h-6 w-6 text-[var(--champagne)]" /><h3 className="font-display text-xl font-black text-[var(--bone)]">{title}</h3><p className="mt-2 text-sm leading-7 text-[var(--soft)]">{text}</p><p className="mt-4 text-sm font-black text-[var(--champagne)]">{cta} →</p></motion.a>)}</div></section>;
 }
 
 function Services() {
-  return <section id="palvelut" className="px-4 sm:px-6 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Palvelut" title="Miesten leikkaukset, fade-tyylit ja partapalvelut." text="Tarkka työnjälki, nopea asiointi ja selkeä hinta. Tule sisään, näytä tyyli ja anna parturin hoitaa loput." /><PrimaryCta source="services_top" /></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(([name, price, desc]) => <motion.article key={name} whileHover={{ y: -4 }} className="premium-card rounded-3xl p-6"><Scissors className="mb-4 h-6 w-6 text-[var(--champagne)]" /><h3 className="font-display text-xl font-black text-[var(--bone)]">{name}</h3><p className="mt-2 text-sm leading-7 text-[var(--soft)]">{desc}</p><div className="mt-6 flex items-center justify-between border-t border-[var(--line)] pt-4"><span className="font-black text-[var(--champagne)]">{price}</span><a href={mapsUrl} target="_blank" rel="noreferrer" onClick={() => trackMaps(`service_${name}`)} className="text-sm font-bold text-[var(--bone)]">Tule sisään →</a></div></motion.article>)}</div></div></section>;
+  return <section id="palvelut" className="px-4 sm:px-6 lg:px-8"><div className="mx-auto max-w-7xl"><div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><SectionHeading eyebrow="Palvelut" title="Miesten leikkaukset, fade-tyylit ja partapalvelut." text="Tarkka työnjälki, nopea asiointi ja selkeä hinta. Tule sisään, näytä tyyli ja anna parturin hoitaa loput." /><div className="grid gap-3 sm:flex"><BookingCta source="services_booking" /><PrimaryCta source="services_top" /></div></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(([name, price, desc]) => <motion.article key={name} whileHover={{ y: -4 }} className="premium-card rounded-3xl p-6"><Scissors className="mb-4 h-6 w-6 text-[var(--champagne)]" /><h3 className="font-display text-xl font-black text-[var(--bone)]">{name}</h3><p className="mt-2 text-sm leading-7 text-[var(--soft)]">{desc}</p><div className="mt-6 flex items-center justify-between border-t border-[var(--line)] pt-4"><span className="font-black text-[var(--champagne)]">{price}</span><a href={phoneHref} onClick={() => trackPhone(`service_${name}`)} className="text-sm font-bold text-[var(--bone)]">Kysy aikaa →</a></div></motion.article>)}</div></div></section>;
 }
 
 function PricingProducts() {
-  return <section id="hinnasto" className="section-surface px-4 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2"><div><SectionHeading eyebrow="Hinnasto" title="Reilu hinta. Tarkka jälki." text="Miesten hiustenleikkaus on ollut noin 20 €. Tarkka hinta vahvistetaan liikkeessä palvelun mukaan." /><div className="mt-8 overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--ink)]">{services.slice(0, 5).map(([name, price]) => <div key={name} className="flex items-center justify-between gap-4 border-b border-[var(--line)] p-4 last:border-0"><span className="font-bold text-[var(--bone)]">{name}</span><span className="shrink-0 font-black text-[var(--champagne)]">{price}</span></div>)}</div></div><div id="tuotteet"><SectionHeading eyebrow="Tuotteet" title="Parturin suosikkituotteet mukaan käynniltä." text="Kysy saatavuus liikkeessä tai Instagramissa." /><div className="mt-8 grid gap-3 sm:grid-cols-2">{products.map(([name, price]) => <div key={name} className="premium-card flex items-center justify-between rounded-2xl p-4"><span className="font-bold text-[var(--bone)]">{name}</span><span className="font-black text-[var(--champagne)]">{price}</span></div>)}</div><SocialCta className="mt-6 w-full sm:w-auto" /></div></div></section>;
+  return <section id="hinnasto" className="section-surface px-4 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2"><div><SectionHeading eyebrow="Hinnasto" title="Reilu hinta. Tarkka jälki." text="Miesten hiustenleikkaus on ollut noin 20 €. Tarkka hinta vahvistetaan liikkeessä palvelun mukaan." /><div className="mt-8 overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--ink)]">{services.slice(0, 5).map(([name, price]) => <div key={name} className="flex items-center justify-between gap-4 border-b border-[var(--line)] p-4 last:border-0"><span className="font-bold text-[var(--bone)]">{name}</span><span className="shrink-0 font-black text-[var(--champagne)]">{price}</span></div>)}</div></div><div id="tuotteet"><SectionHeading eyebrow="Tuotteet" title="Parturin suosikkituotteet mukaan käynniltä." text="Kysy saatavuus liikkeessä, Instagramissa tai puhelimitse." /><div className="mt-8 grid gap-3 sm:grid-cols-2">{products.map(([name, price]) => <div key={name} className="premium-card flex items-center justify-between rounded-2xl p-4"><span className="font-bold text-[var(--bone)]">{name}</span><span className="font-black text-[var(--champagne)]">{price}</span></div>)}</div><div className="mt-6 grid gap-3 sm:flex"><SocialCta className="w-full sm:w-auto" /><PhoneCta source="products_phone" className="w-full sm:w-auto" /></div></div></div></section>;
 }
 
 function GalleryReviews() {
@@ -196,7 +210,7 @@ function GalleryReviews() {
 
 function LocationContact() {
   const hours = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"];
-  return <section id="sijainti" className="section-surface px-4 pb-28 sm:px-6 lg:px-8 lg:pb-28"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionHeading eyebrow="Sijainti" title="Aivan Espoon juna-aseman vieressä." text="Golden Cut palvelee ilman ajanvarausta. Nopein yhteys on puhelin tai Instagram." /><div className="mt-6 grid gap-3"><a href={mapsUrl} target="_blank" rel="noreferrer" onClick={() => trackMaps("location_card")} className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><MapPin className="h-5 w-5 shrink-0 text-[var(--champagne)]" />{address}</a><a href={phoneHref} onClick={() => trackPhone("location_card")} className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><Phone className="h-5 w-5 shrink-0 text-[var(--champagne)]" />{phoneDisplay}</a><a href={instagramUrl} target="_blank" rel="noreferrer" className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><Instagram className="h-5 w-5 shrink-0 text-[var(--champagne)]" />@goldencut_parturi</a></div><div className="premium-card mt-4 rounded-3xl p-6"><SectionLabel>Aukioloajat</SectionLabel>{hours.map((day, index) => <div key={day} className="flex justify-between border-b border-[var(--line)] py-2 text-sm text-[var(--soft)] last:border-0"><span>{day}</span><strong className="text-[var(--bone)]">{index === 6 ? "11–18" : "10–19"}</strong></div>)}</div></div><div className="overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--ink)]"><iframe title="Golden Cut-parturi kartta" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.4696338415222!2d24.655731276847625!3d60.20605967505068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df36efe27437b%3A0x71e90b46c830dc97!2sGolden%20Cut-parturi!5e0!3m2!1sfi!2sfi!4v1777578700979!5m2!1sfi!2sfi" width="100%" height="460" style={{ border: 0 }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div></div></section>;
+  return <section id="sijainti" className="section-surface px-4 pb-28 sm:px-6 lg:px-8 lg:pb-28"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionHeading eyebrow="Sijainti ja yhteys" title="Aivan Espoon juna-aseman vieressä." text="Tule ilman ajanvarausta tai kysy sopivaa aikaa puhelimella, Instagramissa tai sähköpostilla." /><div className="mt-6 grid gap-3"><a href={mapsUrl} target="_blank" rel="noreferrer" onClick={() => trackMaps("location_card")} className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><MapPin className="h-5 w-5 shrink-0 text-[var(--champagne)]" />{address}</a><a href={phoneHref} onClick={() => trackPhone("location_card")} className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><Phone className="h-5 w-5 shrink-0 text-[var(--champagne)]" />{phoneDisplay}</a><a href={instagramUrl} target="_blank" rel="noreferrer" className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><Instagram className="h-5 w-5 shrink-0 text-[var(--champagne)]" />@goldencut_parturi</a><a href={emailHref} className="premium-card flex gap-3 rounded-2xl p-4 text-[var(--soft)]"><Mail className="h-5 w-5 shrink-0 text-[var(--champagne)]" />{email}</a></div><div className="premium-card mt-4 rounded-3xl p-6"><SectionLabel>Aukioloajat</SectionLabel>{hours.map((day, index) => <div key={day} className="flex justify-between border-b border-[var(--line)] py-2 text-sm text-[var(--soft)] last:border-0"><span>{day}</span><strong className="text-[var(--bone)]">{index === 6 ? "11–18" : "10–19"}</strong></div>)}</div></div><div className="overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--ink)]"><iframe title="Golden Cut-parturi kartta" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.4696338415222!2d24.655731276847625!3d60.20605967505068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df36efe27437b%3A0x71e90b46c830dc97!2sGolden%20Cut-parturi!5e0!3m2!1sfi!2sfi!4v1777578700979!5m2!1sfi!2sfi" width="100%" height="460" style={{ border: 0 }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div></div></section>;
 }
 
 function FAQ() {
@@ -204,7 +218,7 @@ function FAQ() {
 }
 
 function Footer() {
-  return <footer className="border-t border-[var(--line)] bg-[var(--ink)] px-4 py-10 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3"><div><Logo /><p className="mt-4 text-sm leading-7 text-[var(--soft)]">Nopea, tarkka ja reilusti hinnoiteltu miesten parturi Espoon keskuksessa.</p></div><div><h3 className="font-bold uppercase tracking-[0.22em] text-[var(--champagne)]">Pikalinkit</h3><div className="mt-4 grid gap-2 text-sm text-[var(--soft)]">{nav.map(([href, label]) => <a key={href} href={href}>{label}</a>)}<a href="#yhteystiedot">Yhteystiedot</a></div></div><div><h3 className="font-bold uppercase tracking-[0.22em] text-[var(--champagne)]">Seuraa</h3><div className="mt-4 flex flex-wrap gap-2"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a><a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a><a href={tiktokUrl} target="_blank" rel="noreferrer">TikTok</a></div></div></div><div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[rgba(2,2,1,0.96)] p-3 backdrop-blur md:hidden"><PrimaryCta source="mobile_sticky" className="w-full" /></div></footer>;
+  return <footer className="border-t border-[var(--line)] bg-[var(--ink)] px-4 py-10 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3"><div><Logo /><p className="mt-4 text-sm leading-7 text-[var(--soft)]">Nopea, tarkka ja reilusti hinnoiteltu miesten parturi Espoon keskuksessa.</p></div><div><h3 className="font-bold uppercase tracking-[0.22em] text-[var(--champagne)]">Pikalinkit</h3><div className="mt-4 grid gap-2 text-sm text-[var(--soft)]">{nav.map(([href, label]) => <a key={href} href={href}>{label}</a>)}<a href="#sijainti">Yhteystiedot</a></div></div><div><h3 className="font-bold uppercase tracking-[0.22em] text-[var(--champagne)]">Seuraa</h3><div className="mt-4 flex flex-wrap gap-2"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a><a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a><a href={tiktokUrl} target="_blank" rel="noreferrer">TikTok</a></div></div></div><div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[rgba(0,0,0,0.96)] p-3 backdrop-blur md:hidden"><PrimaryCta source="mobile_sticky" className="w-full" /></div></footer>;
 }
 
 export default function AppFinal() {
