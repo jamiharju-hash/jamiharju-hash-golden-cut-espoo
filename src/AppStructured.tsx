@@ -1,5 +1,6 @@
 import { Clock, Instagram, Mail, MapPin, Phone, Star, Train } from "lucide-react";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { Hero } from "./components/Hero";
 import { LocationCta, trackMaps, trackPhone } from "./components/LocationCta";
 import { Logo, Navigation } from "./components/Navigation";
@@ -96,6 +97,32 @@ function SocialIcons() {
   );
 }
 
+function MobileStickyCta() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const hero = document.getElementById("etusivu");
+      const heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight;
+      setShow(heroBottom < window.innerHeight * 0.35);
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
+    };
+  }, []);
+
+  return (
+    <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/95 p-3 backdrop-blur transition duration-500 luxury-ease md:hidden ${show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"}`}>
+      <LocationCta source="mobile_sticky_location" label="Tule ilman ajanvarausta" className="w-full" />
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer id="sijainti" className="bg-[#0D0D0D] px-4 py-16 pb-32 min-[380px]:px-5 sm:px-6 sm:py-20 lg:px-8 2xl:px-12">
@@ -122,7 +149,7 @@ function Footer() {
         <div className="mt-12 sm:mt-16"><LocationCta source="footer_primary_location" label="Tule ilman ajanvarausta" className="w-full sm:w-full" /></div>
         <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-8 text-xs font-bold uppercase tracking-[0.16em] text-white/45 sm:mt-20 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 Golden Cut Parturi Espoo</p><p>Ilman ajanvarausta · Tervetuloa suoraan sisään</p></div>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/95 p-3 backdrop-blur md:hidden"><LocationCta source="mobile_sticky_location" label="Tule ilman ajanvarausta" className="w-full" /></div>
+      <MobileStickyCta />
     </footer>
   );
 }
