@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import AppWalkIn from './AppWalkIn.tsx';
+import AppLaunch from './AppLaunch.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppWalkIn />
+    <AppLaunch />
   </StrictMode>,
 );
