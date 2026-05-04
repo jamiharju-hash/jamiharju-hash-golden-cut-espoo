@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Golden Cut Parturi Espoo">
+  <defs>
+    <radialGradient id="g" cx="35%" cy="20%" r="75%">
+      <stop offset="0" stop-color="#3b2506"/>
+      <stop offset="0.42" stop-color="#090909"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#fbbf24" stroke-width="4" opacity=".7"/>
+  <text x="80" y="140" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" letter-spacing="9" fill="#fbbf24">PARTURI ESPOO</text>
+  <text x="76" y="308" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="900" letter-spacing="-7" fill="#ffffff">GOLDEN CUT</text>
+  <text x="80" y="382" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="800" fill="#ffffff" opacity=".82">Espoon keskuksen luottoparturi miehille</text>
+  <text x="80" y="452" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#d4d4d4">Kirkkojärventie 10 B · Ilman ajanvarausta</text>
+  <circle cx="90" cy="530" r="10" fill="#fbbf24"/>
+  <text x="118" y="540" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#ffffff">Walk-in avoinna</text>
+</svg>
