@@ -1,20 +1,89 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Golden Cut Parturi — full stack conversion site
 
-# Run and deploy your AI Studio app
+Public website and lightweight lead-capture backend for Golden Cut Parturi, Kirkkojärventie 10 B, Espoo.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/8f0af7c9-6b4d-43be-a61c-200b14159f80
+- Vite
+- React 19
+- TypeScript
+- Tailwind CSS
+- Vercel serverless functions
+- Optional webhook forwarding for CRM / email / automation
 
-## Run Locally
+## Features
 
-**Prerequisites:**  Node.js
+- Responsive dark premium UI
+- Walk-in conversion CTA
+- Gift card lead form
+- Product interest form
+- Contact form
+- Google Maps embed
+- Local SEO metadata
+- Barbershop schema.org JSON-LD
+- robots.txt and sitemap.xml
+- Analytics helper with `window.gtag` support
 
+## API endpoints
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### `POST /api/leads`
+
+General contact and product-interest leads.
+
+Required:
+
+- `name`
+- `message`
+- either `email` or `phone`
+
+### `POST /api/gift-cards`
+
+Gift card requests.
+
+Required:
+
+- `buyerName`
+- `recipientName`
+- `amount`
+- either `buyerEmail` or `buyerPhone`
+
+## Environment variables
+
+```bash
+CONTACT_WEBHOOK_URL=
+```
+
+If `CONTACT_WEBHOOK_URL` is empty, leads are logged in the Vercel function logs. Add a Zapier, Make, Pipedream, n8n, Slack, CRM or custom webhook URL to forward leads.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+## Production build
+
+```bash
+npm run build
+```
+
+## Vercel settings
+
+The repository includes `vercel.json`:
+
+```json
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install"
+}
+```
+
+In Vercel, use:
+
+- Framework preset: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Install command: `npm install`
