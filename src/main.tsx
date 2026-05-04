@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import AppProduction from './AppProduction.tsx';
+import AppPremium from './AppPremium.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppProduction />
+    <AppPremium />
   </StrictMode>,
 );
