@@ -45,15 +45,15 @@ const footerLinks = [
 
 const haircutServices = [
   { name: "Klassinen leikkaus", desc: "Perinteinen kone- tai saksileikkaus siisteillä linjoilla.", price: "20 €" },
-  { name: "Skin Fade", desc: "Moderni ja tarkka häivytys nollasta ylöspäin.", price: "20 €" },
-  { name: "Mid / Taper Fade", desc: "Luonnollinen ja helposti ylläpidettävä fade.", price: "20 €" },
+  { name: "Skin fade", desc: "Moderni ja tarkka häivytys nollasta ylöspäin.", price: "20 €" },
+  { name: "Mid fade / Taper fade", desc: "Luonnollinen ja helposti ylläpidettävä fade.", price: "20 €" },
   { name: "Lasten leikkaus", desc: "Rento ja nopea leikkaus perheen pienimmille.", price: "kysy" },
 ];
 
 const beardServices = [
   { name: "Parran muotoilu", desc: "Linjojen siistiminen ja muodon hakeminen.", price: "15 €" },
   { name: "Koneajo", desc: "Nopea ja tarkka lyhennys koneella.", price: "10 €" },
-  { name: "Hiukset + Parta", desc: "Täydellinen paketti: fade ja parran viimeistely.", price: "35 €" },
+  { name: "Hiukset + parta", desc: "Kokonaisuus, jossa leikkaus ja parta viimeistellään samalla käynnillä.", price: "35 €" },
 ];
 
 const reveal = {
@@ -151,7 +151,7 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
           className="grid gap-8 border-t border-white/10 pt-8 sm:gap-10 sm:pt-10 lg:border-t-0 lg:pt-0"
         >
           <div>
-            <p className="mb-3 font-serif text-xl font-black text-white/55 sm:mb-4 sm:text-3xl">Email</p>
+            <p className="mb-3 font-serif text-xl font-black text-white/55 sm:mb-4 sm:text-3xl">Sähköposti</p>
             <a href={emailHref} className="break-all text-[1.35rem] font-black uppercase leading-tight tracking-[-0.03em] text-white/85 transition duration-500 luxury-ease hover:text-amber-400 sm:text-4xl">
               {email}
             </a>
@@ -245,12 +245,12 @@ function Hero() {
 
       <div className="relative mx-auto flex min-h-[calc(100svh-7rem)] max-w-7xl flex-col justify-end sm:min-h-[calc(100vh-8rem)]">
         <motion.div initial="hidden" animate="visible" variants={reveal} className="max-w-6xl">
-          <p className="mb-5 text-[clamp(1.25rem,6vw,3.25rem)] font-black leading-[1.06] tracking-[-0.04em] text-white/65 sm:mb-8">Welcome to Golden Cut.</p>
+          <p className="mb-5 text-[clamp(1.25rem,6vw,3.25rem)] font-black leading-[1.06] tracking-[-0.04em] text-white/65 sm:mb-8">Tervetuloa Golden Cutiin.</p>
           <h1 className="font-display max-w-[8.8ch] text-[clamp(3.35rem,16vw,12rem)] font-black leading-[0.88] tracking-[-0.085em] text-white drop-shadow-[0_20px_70px_rgba(0,0,0,0.75)] sm:leading-[0.84] sm:tracking-[-0.09em]">
-            Expert Grooming. Distinct Style.
+            Espoon keskuksen luottoparturi miehille.
           </h1>
           <p className="mt-6 max-w-2xl text-base font-bold leading-7 text-white/70 sm:mt-8 sm:text-2xl sm:leading-8">
-            Nopea, tarkka ja helposti saavutettava miesten parturi Espoon keskuksessa — ilman ajanvarausta.
+            Nopea, tarkka ja helposti saavutettava miesten parturi aivan Espoon juna-aseman vieressä — ilman ajanvarausta.
           </p>
           <div className="mt-9 flex items-center gap-3 text-xl font-black text-white sm:mt-14 sm:gap-4 sm:text-3xl">
             <span className="relative flex h-3.5 w-3.5 sm:h-4 sm:w-4">
@@ -311,9 +311,9 @@ function ServicesMenu() {
     <section id="palvelut" className="bg-black px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-16 text-center sm:mb-20">
-          <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Services</p>
+          <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Palvelut</p>
           <h2 className="font-display text-[clamp(2.65rem,12vw,6rem)] font-black leading-[0.94] tracking-[-0.07em] text-white">Tyylit ja palvelut.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-neutral-400 sm:mt-8 sm:text-lg sm:leading-8">Huipputason hiustenleikkaukset, häivytykset ja parranajot asenteella. Selaa palveluita ja kävele suoraan sisään.</p>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-neutral-400 sm:mt-8 sm:text-lg sm:leading-8">Miesten leikkaukset, fade-tyylit ja partapalvelut selkeällä hinnalla. Katso palvelut ja tule suoraan sisään.</p>
         </motion.div>
         <div className="grid gap-16 sm:gap-20" id="hinnasto">
           <ServiceCategory title="Hiustenleikkaukset" services={haircutServices} />
@@ -339,7 +339,7 @@ function ProofSection() {
     <section className="border-y border-white/5 bg-[#0D0D0D] px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-4xl">
-          <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Why Golden Cut</p>
+          <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Miksi Golden Cut</p>
           <h2 className="font-display text-[clamp(2.7rem,12vw,6.5rem)] font-black leading-[0.92] tracking-[-0.08em] text-white sm:leading-[0.9]">Reilu hinta. Hyvä jälki. Matala kynnys.</h2>
         </motion.div>
         <div className="mt-14 grid gap-9 sm:mt-20 md:grid-cols-2 xl:grid-cols-4">
@@ -360,8 +360,8 @@ function GalleryStrip() {
   return (
     <section id="kuvat" className="bg-black px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
       <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mx-auto max-w-7xl">
-        <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Gallery</p>
-        <h2 className="font-display max-w-4xl text-[clamp(2.65rem,12vw,6rem)] font-black leading-[0.94] tracking-[-0.07em] text-white sm:leading-[0.92]">Aitoa parturityötä. Ei geneeristä stock-kuvaa.</h2>
+        <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-400">Galleria</p>
+        <h2 className="font-display max-w-4xl text-[clamp(2.65rem,12vw,6rem)] font-black leading-[0.94] tracking-[-0.07em] text-white sm:leading-[0.92]">Katso Golden Cutin työnjälki.</h2>
         <a href={heroPhoto.sourceUrl} target="_blank" rel="noreferrer" onClick={() => trackMaps("gallery_photo") } className="editorial-image-zoom mt-10 block overflow-hidden border border-white/10 sm:mt-12">
           <img src={heroPhoto.imageUrl} alt={heroPhoto.title} className="h-[320px] w-full object-cover grayscale brightness-50 transition duration-700 hover:grayscale-0 hover:brightness-75 sm:h-[460px]" loading="lazy" />
         </a>
@@ -428,7 +428,7 @@ function Footer() {
             <a href={emailHref} className="flex gap-4 border-t border-white/10 pt-6 sm:gap-5">
               <Mail className="mt-1 h-7 w-7 shrink-0 text-white/50 sm:h-8 sm:w-8" />
               <div className="min-w-0">
-                <p className="text-xl font-black text-white/65 sm:text-2xl">Email</p>
+                <p className="text-xl font-black text-white/65 sm:text-2xl">Sähköposti</p>
                 <p className="mt-3 break-all text-xl font-black uppercase leading-tight text-white sm:mt-4 sm:text-2xl">{email}</p>
               </div>
             </a>
@@ -449,7 +449,7 @@ function Footer() {
 
         <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-8 text-xs font-bold uppercase tracking-[0.16em] text-white/45 sm:mt-20 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Golden Cut Parturi Espoo</p>
-          <p>Walk-in only · no appointment needed</p>
+          <p>Ilman ajanvarausta · Tervetuloa suoraan sisään</p>
         </div>
       </div>
 
