@@ -1,0 +1,282 @@
+/* Final production overrides: stronger contrast, cleaner mobile rhythm and less cramped UI. */
+
+:root {
+  --bone: #fffaf2;
+  --soft: #efe5d2;
+  --muted: #d4c7b3;
+  --champagne: #e0c47f;
+  --brass: #b9914d;
+  --line: rgba(224, 196, 127, 0.28);
+  --header-line: rgba(224, 196, 127, 0.2);
+}
+
+body {
+  background: linear-gradient(180deg, #020201 0%, #060503 42%, #030302 100%) !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(185, 145, 77, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 0%, rgba(70, 20, 14, 0.14), transparent 34%);
+}
+
+header {
+  background: rgba(2, 2, 1, 0.96) !important;
+  border-bottom: 1px solid var(--header-line) !important;
+}
+
+header nav a,
+header a[aria-label="Instagram"],
+header button[aria-label="Avaa valikko"] {
+  color: var(--soft) !important;
+}
+
+header nav a:hover,
+header a[aria-label="Instagram"]:hover,
+header button[aria-label="Avaa valikko"]:hover {
+  color: var(--bone) !important;
+}
+
+#etusivu {
+  min-height: auto !important;
+}
+
+#etusivu > div.pointer-events-none {
+  opacity: 0.72 !important;
+}
+
+#etusivu h1 {
+  color: var(--bone) !important;
+  text-wrap: balance;
+}
+
+#etusivu p,
+section p,
+.premium-card p,
+.premium-fact {
+  color: var(--soft) !important;
+}
+
+section h2,
+.premium-card h3,
+blockquote p {
+  color: var(--bone) !important;
+}
+
+.premium-card,
+.premium-fact,
+form.premium-card,
+.rounded-2xl.border,
+.rounded-3xl.border {
+  border-color: rgba(224, 196, 127, 0.26) !important;
+}
+
+.premium-card {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.055), transparent 54%),
+    linear-gradient(135deg, rgba(22, 17, 11, 0.99), rgba(3, 3, 2, 0.995)) !important;
+}
+
+.premium-cta {
+  color: #050403 !important;
+  background: linear-gradient(135deg, #ead18b 0%, #b9914d 48%, #77582d 100%) !important;
+  box-shadow:
+    0 12px 26px rgba(185, 145, 77, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42) !important;
+}
+
+input,
+textarea,
+select {
+  color: var(--bone) !important;
+  background: #050403 !important;
+  border-color: rgba(224, 196, 127, 0.26) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(239, 229, 210, 0.55) !important;
+}
+
+@media (max-width: 1024px) {
+  header > div:first-child {
+    height: 5rem !important;
+  }
+
+  #etusivu {
+    padding-top: 4.75rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background: #030302 !important;
+  }
+
+  header > div:first-child {
+    height: 5rem !important;
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] {
+    gap: 0.78rem !important;
+    max-width: calc(100vw - 6.7rem) !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:first-child {
+    width: 3rem !important;
+    height: 3rem !important;
+    border-radius: 0.95rem !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:first-child::before {
+    font-size: 0.82rem !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) {
+    overflow: hidden;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
+    font-size: clamp(0.95rem, 4.8vw, 1.12rem) !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.28em !important;
+    color: var(--muted) !important;
+  }
+
+  header button[aria-label="Avaa valikko"] {
+    width: 3.05rem !important;
+    height: 3.05rem !important;
+    border-radius: 0.95rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  header [class*="border-t"] a {
+    min-height: 3.35rem;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    color: var(--bone) !important;
+    background: rgba(255, 250, 242, 0.035);
+  }
+
+  main > section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  #etusivu {
+    padding-top: 5.25rem !important;
+    padding-bottom: 7rem !important;
+  }
+
+  #etusivu > div.relative.mx-auto {
+    gap: 2rem !important;
+  }
+
+  #etusivu .inline-flex.rounded-full:first-child {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+    align-items: flex-start;
+  }
+
+  #etusivu h1 {
+    font-size: clamp(2.55rem, 10.2vw, 3.45rem) !important;
+    line-height: 1.035 !important;
+    letter-spacing: -0.048em !important;
+    max-width: 11ch;
+  }
+
+  #etusivu p {
+    max-width: 32rem !important;
+    font-size: 1.03rem !important;
+    line-height: 1.78 !important;
+  }
+
+  #etusivu a.premium-cta,
+  #etusivu a[href^="tel:"] {
+    width: 100%;
+    min-height: 3.65rem;
+    font-size: 0.98rem;
+  }
+
+  #etusivu .premium-fact {
+    min-height: 3.35rem;
+    padding: 0.95rem 1rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.35;
+  }
+
+  #etusivu .premium-fact svg {
+    flex-shrink: 0;
+  }
+
+  main > section:not(#etusivu) {
+    padding-top: 5.25rem !important;
+    padding-bottom: 5.25rem !important;
+  }
+
+  section h2 {
+    font-size: clamp(2rem, 8vw, 2.65rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+    text-wrap: balance;
+  }
+
+  .premium-card,
+  form.premium-card {
+    padding: 1.35rem !important;
+    border-radius: 1.45rem !important;
+  }
+
+  .premium-card p,
+  form label,
+  form input,
+  form textarea,
+  form select {
+    font-size: 0.98rem !important;
+  }
+
+  iframe {
+    height: 340px !important;
+  }
+
+  footer {
+    padding-bottom: 6.5rem !important;
+  }
+
+  footer .fixed {
+    padding: 0.8rem 1rem calc(0.8rem + env(safe-area-inset-bottom)) !important;
+  }
+
+  footer .fixed .premium-cta {
+    min-height: 3.45rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  #etusivu h1 {
+    font-size: clamp(2.32rem, 10.4vw, 3.05rem) !important;
+  }
+}
