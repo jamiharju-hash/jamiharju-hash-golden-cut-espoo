@@ -1,17 +1,23 @@
-/* Final production overrides: stronger contrast, cleaner mobile rhythm and less cramped UI. */
+/* Final production overrides: package palette, strong contrast and mobile rhythm. */
 
 :root {
-  --bone: #fffaf2;
-  --soft: #efe5d2;
-  --muted: #d4c7b3;
-  --champagne: #e0c47f;
-  --brass: #b9914d;
-  --line: rgba(224, 196, 127, 0.28);
-  --header-line: rgba(224, 196, 127, 0.2);
+  --ink: #050505;
+  --charcoal: #101010;
+  --coffee: #161616;
+  --smoke: #202020;
+  --bone: #ffffff;
+  --soft: #e7e7e7;
+  --muted: #b9b9b9;
+  --champagne: #f4c542;
+  --brass: #d6a21f;
+  --brass-deep: #8f6511;
+  --brass-soft: rgba(244, 197, 66, 0.34);
+  --line: rgba(244, 197, 66, 0.24);
+  --header-line: rgba(244, 197, 66, 0.18);
 }
 
 body {
-  background: linear-gradient(180deg, #020201 0%, #060503 42%, #030302 100%) !important;
+  background: #050505 !important;
 }
 
 body::before {
@@ -21,86 +27,172 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background:
-    radial-gradient(circle at 12% 16%, rgba(185, 145, 77, 0.08), transparent 28%),
-    radial-gradient(circle at 88% 0%, rgba(70, 20, 14, 0.14), transparent 34%);
+    radial-gradient(circle at 14% 12%, rgba(244, 197, 66, 0.09), transparent 28%),
+    radial-gradient(circle at 86% 0%, rgba(214, 162, 31, 0.07), transparent 34%),
+    linear-gradient(180deg, #050505 0%, #080808 45%, #050505 100%);
 }
 
+.site-header,
 header {
-  background: rgba(2, 2, 1, 0.96) !important;
+  background: rgba(5, 5, 5, 0.97) !important;
   border-bottom: 1px solid var(--header-line) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
 }
 
-header nav a,
-header a[aria-label="Instagram"],
-header button[aria-label="Avaa valikko"] {
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(244, 197, 66, 0.36);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #171717, #080808);
+  color: var(--champagne);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 30px rgba(0,0,0,.35);
+}
+
+.brand-wordmark {
+  color: var(--bone) !important;
+  font-size: 1.18rem;
+  line-height: 1;
+  letter-spacing: .2em;
+}
+
+.brand-subtitle {
+  color: var(--muted) !important;
+  font-size: .68rem;
+  letter-spacing: .34em;
+}
+
+.site-nav {
+  gap: .2rem;
+  padding: .35rem;
+  border: 1px solid rgba(244, 197, 66, 0.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+}
+
+.site-nav a {
+  padding: .56rem .82rem;
+  border-radius: 999px;
+  color: var(--soft) !important;
+  font-size: .84rem;
+  font-weight: 800;
+}
+
+.site-nav a:hover {
+  color: var(--bone) !important;
+  background: rgba(244, 197, 66, 0.12);
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(244, 197, 66, 0.2);
+  border-radius: 1rem;
+  background: rgba(255,255,255,.035);
   color: var(--soft) !important;
 }
 
-header nav a:hover,
-header a[aria-label="Instagram"]:hover,
-header button[aria-label="Avaa valikko"]:hover {
+.icon-button:hover {
+  color: var(--champagne) !important;
+  border-color: rgba(244, 197, 66, 0.42);
+  background: rgba(244, 197, 66, 0.1);
+}
+
+.mobile-menu {
+  background: rgba(5,5,5,.98);
+}
+
+.mobile-menu a {
+  min-height: 3.35rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(244, 197, 66, 0.18);
+  border-radius: 1rem;
+  padding: 0 1rem;
   color: var(--bone) !important;
+  background: rgba(255,255,255,.035);
+  font-weight: 850;
 }
 
-#etusivu {
-  min-height: auto !important;
+.premium-hero {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(244, 197, 66, 0.12), transparent 31%),
+    linear-gradient(135deg, #050505 0%, #0a0a0a 52%, #060606 100%) !important;
 }
 
-#etusivu > div.pointer-events-none {
-  opacity: 0.72 !important;
+.hero-depth {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(244, 197, 66, 0.10), transparent 32%),
+    radial-gradient(circle at 88% 8%, rgba(214, 162, 31, 0.08), transparent 36%) !important;
 }
 
-#etusivu h1 {
-  color: var(--bone) !important;
-  text-wrap: balance;
+.trust-badge {
+  border: 1px solid rgba(244, 197, 66, 0.28);
+  border-radius: 999px;
+  background: rgba(244, 197, 66, 0.1);
+  padding: .72rem 1rem;
+  color: var(--champagne);
+  font-weight: 900;
 }
 
-#etusivu p,
-section p,
-.premium-card p,
-.premium-fact {
-  color: var(--soft) !important;
+.section-surface {
+  background: #0a0a0a !important;
+  border-top: 1px solid rgba(244, 197, 66, 0.08);
+  border-bottom: 1px solid rgba(244, 197, 66, 0.08);
 }
 
+#etusivu h1,
 section h2,
 .premium-card h3,
 blockquote p {
   color: var(--bone) !important;
 }
 
+#etusivu p,
+section p,
+.premium-card p,
+.premium-fact,
+.section-surface p {
+  color: var(--soft) !important;
+}
+
 .premium-card,
 .premium-fact,
-form.premium-card,
 .rounded-2xl.border,
 .rounded-3xl.border {
-  border-color: rgba(224, 196, 127, 0.26) !important;
+  border-color: rgba(244, 197, 66, 0.24) !important;
 }
 
 .premium-card {
   background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.055), transparent 54%),
-    linear-gradient(135deg, rgba(22, 17, 11, 0.99), rgba(3, 3, 2, 0.995)) !important;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 54%),
+    linear-gradient(135deg, rgba(18, 18, 18, 0.99), rgba(5, 5, 5, 0.995)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 22px 56px rgba(0,0,0,.24);
+}
+
+.premium-fact {
+  background: rgba(0,0,0,.68) !important;
+  color: var(--soft) !important;
+}
+
+.hero-media {
+  border: 1px solid rgba(244, 197, 66, 0.24);
+  box-shadow: 0 22px 70px rgba(0,0,0,.4);
 }
 
 .premium-cta {
-  color: #050403 !important;
-  background: linear-gradient(135deg, #ead18b 0%, #b9914d 48%, #77582d 100%) !important;
+  color: #050505 !important;
+  background: linear-gradient(135deg, #ffe070 0%, #f4c542 45%, #b8860b 100%) !important;
   box-shadow:
-    0 12px 26px rgba(185, 145, 77, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.42) !important;
-}
-
-input,
-textarea,
-select {
-  color: var(--bone) !important;
-  background: #050403 !important;
-  border-color: rgba(224, 196, 127, 0.26) !important;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(239, 229, 210, 0.55) !important;
+    0 14px 30px rgba(244, 197, 66, 0.18),
+    inset 0 1px 0 rgba(255,255,255,.46) !important;
 }
 
 @media (max-width: 1024px) {
@@ -115,87 +207,58 @@ textarea::placeholder {
 
 @media (max-width: 640px) {
   body {
-    background: #030302 !important;
+    background: #050505 !important;
   }
 
   header > div:first-child {
     height: 5rem !important;
-    padding-left: 1.1rem !important;
-    padding-right: 1.1rem !important;
+    padding-left: 1.05rem !important;
+    padding-right: 1.05rem !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] {
-    gap: 0.78rem !important;
-    max-width: calc(100vw - 6.7rem) !important;
+  .brand-logo {
+    gap: .75rem !important;
+    max-width: calc(100vw - 6.6rem) !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] > span:first-child {
+  .brand-mark {
     width: 3rem !important;
     height: 3rem !important;
-    border-radius: 0.95rem !important;
+    border-radius: .95rem !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] > span:first-child::before {
-    font-size: 0.82rem !important;
+  .brand-wordmark {
+    font-size: clamp(.94rem, 4.7vw, 1.1rem) !important;
+    letter-spacing: .17em !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) {
-    overflow: hidden;
+  .brand-subtitle {
+    font-size: .61rem !important;
+    letter-spacing: .26em !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
-    font-size: clamp(0.95rem, 4.8vw, 1.12rem) !important;
-    letter-spacing: 0.18em !important;
-  }
-
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
-    font-size: 0.62rem !important;
-    letter-spacing: 0.28em !important;
-    color: var(--muted) !important;
-  }
-
-  header button[aria-label="Avaa valikko"] {
+  .icon-button {
     width: 3.05rem !important;
     height: 3.05rem !important;
-    border-radius: 0.95rem !important;
+    border-radius: .95rem !important;
     flex-shrink: 0 !important;
   }
 
-  header [class*="border-t"] a {
-    min-height: 3.35rem;
-    display: flex;
-    align-items: center;
-    font-weight: 800;
-    color: var(--bone) !important;
-    background: rgba(255, 250, 242, 0.035);
-  }
-
   main > section {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
   }
 
   #etusivu {
-    padding-top: 5.25rem !important;
-    padding-bottom: 7rem !important;
-  }
-
-  #etusivu > div.relative.mx-auto {
-    gap: 2rem !important;
-  }
-
-  #etusivu .inline-flex.rounded-full:first-child {
-    max-width: 100%;
-    white-space: normal;
-    line-height: 1.35;
-    align-items: flex-start;
+    padding-top: 5.2rem !important;
+    padding-bottom: 7.25rem !important;
   }
 
   #etusivu h1 {
-    font-size: clamp(2.55rem, 10.2vw, 3.45rem) !important;
+    font-size: clamp(2.45rem, 10vw, 3.35rem) !important;
     line-height: 1.035 !important;
     letter-spacing: -0.048em !important;
-    max-width: 11ch;
+    max-width: 11.5ch;
   }
 
   #etusivu p {
@@ -207,24 +270,20 @@ textarea::placeholder {
   #etusivu a.premium-cta,
   #etusivu a[href^="tel:"] {
     width: 100%;
-    min-height: 3.65rem;
-    font-size: 0.98rem;
+    min-height: 3.58rem;
+    font-size: .96rem;
   }
 
   #etusivu .premium-fact {
     min-height: 3.35rem;
-    padding: 0.95rem 1rem !important;
-    font-size: 0.95rem !important;
+    padding: .95rem 1rem !important;
+    font-size: .95rem !important;
     line-height: 1.35;
   }
 
-  #etusivu .premium-fact svg {
-    flex-shrink: 0;
-  }
-
   main > section:not(#etusivu) {
-    padding-top: 5.25rem !important;
-    padding-bottom: 5.25rem !important;
+    padding-top: 5.2rem !important;
+    padding-bottom: 5.2rem !important;
   }
 
   section h2 {
@@ -234,18 +293,9 @@ textarea::placeholder {
     text-wrap: balance;
   }
 
-  .premium-card,
-  form.premium-card {
+  .premium-card {
     padding: 1.35rem !important;
     border-radius: 1.45rem !important;
-  }
-
-  .premium-card p,
-  form label,
-  form input,
-  form textarea,
-  form select {
-    font-size: 0.98rem !important;
   }
 
   iframe {
@@ -257,7 +307,7 @@ textarea::placeholder {
   }
 
   footer .fixed {
-    padding: 0.8rem 1rem calc(0.8rem + env(safe-area-inset-bottom)) !important;
+    padding: .8rem 1rem calc(.8rem + env(safe-area-inset-bottom)) !important;
   }
 
   footer .fixed .premium-cta {
@@ -266,17 +316,17 @@ textarea::placeholder {
 }
 
 @media (max-width: 380px) {
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:first-child {
-    font-size: 0.9rem !important;
-    letter-spacing: 0.14em !important;
+  .brand-wordmark {
+    font-size: .88rem !important;
+    letter-spacing: .13em !important;
   }
 
-  header a[aria-label="Golden Cut etusivu"] > span:nth-child(2) > span:last-child {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.22em !important;
+  .brand-subtitle {
+    font-size: .56rem !important;
+    letter-spacing: .2em !important;
   }
 
   #etusivu h1 {
-    font-size: clamp(2.32rem, 10.4vw, 3.05rem) !important;
+    font-size: clamp(2.28rem, 10.2vw, 3rem) !important;
   }
 }
