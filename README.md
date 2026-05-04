@@ -2,6 +2,16 @@
 
 Public website and lightweight lead-capture backend for Golden Cut Parturi, Kirkkojärventie 10 B, Espoo.
 
+## Business goal
+
+The site is built to convert local search and social traffic into measurable actions:
+
+1. Walk-in visits via Google Maps clicks
+2. Phone calls
+3. Gift card requests
+4. Product-interest leads
+5. Contact form submissions
+
 ## Stack
 
 - Vite
@@ -20,9 +30,40 @@ Public website and lightweight lead-capture backend for Golden Cut Parturi, Kirk
 - Contact form
 - Google Maps embed
 - Local SEO metadata
-- Barbershop schema.org JSON-LD
+- FAQ schema and Barbershop schema.org JSON-LD
 - robots.txt and sitemap.xml
 - Analytics helper with `window.gtag` support
+- Vercel serverless API endpoints
+
+## Project structure
+
+```txt
+api/
+  _utils.js
+  gift-cards.js
+  leads.js
+src/
+  components/
+    LeadForms.tsx
+  lib/
+    analytics.ts
+  AppFullStack.tsx
+  main.tsx
+  index.css
+public/
+  robots.txt
+  sitemap.xml
+docs/
+  API.md
+  DEPLOYMENT.md
+  DESIGN_SYSTEM.md
+```
+
+## Documentation
+
+- [Design system](docs/DESIGN_SYSTEM.md)
+- [API documentation](docs/API.md)
+- [Deployment guide](docs/DEPLOYMENT.md)
 
 ## API endpoints
 
@@ -87,3 +128,16 @@ In Vercel, use:
 - Build command: `npm run build`
 - Output directory: `dist`
 - Install command: `npm install`
+
+## QA checklist
+
+- [ ] Build passes with `npm run build`.
+- [ ] Home page works at 375px, 430px, 768px, 1024px and 1440px.
+- [ ] Walk-in CTA opens Google Maps.
+- [ ] Phone CTA opens phone link.
+- [ ] Gift card form submits.
+- [ ] Product form submits.
+- [ ] Contact form submits.
+- [ ] `/robots.txt` loads.
+- [ ] `/sitemap.xml` loads.
+- [ ] JSON-LD validates.
