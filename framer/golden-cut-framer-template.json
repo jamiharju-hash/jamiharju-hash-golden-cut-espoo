@@ -1,0 +1,142 @@
+{
+  "project": "Golden Cut Parturi",
+  "template_version": "1.0.0",
+  "purpose": "Framer-ready layout specification for recreating the Golden Cut production website.",
+  "brand": {
+    "positioning": "Nopea, tarkka ja helposti saavutettava miesten parturi Espoon keskuksessa — ilman ajanvarausta.",
+    "tone": "Ammattimainen, suora, paikallinen, moderni ja käytännöllinen.",
+    "primary_cta": "Tule ilman ajanvarausta",
+    "secondary_cta": "Soita 040 058 8484"
+  },
+  "colors": {
+    "background": "#000000",
+    "surface": "#09090B",
+    "surface_alt": "#18181B",
+    "border": "#27272A",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#D4D4D8",
+    "text_muted": "#71717A",
+    "gold": "#FBBF24",
+    "gold_hover": "#FCD34D"
+  },
+  "typography": {
+    "font_family": "Geist Variable, Inter, system-ui, sans-serif",
+    "hero_desktop": { "size": 64, "lineHeight": 1.03, "weight": 900, "tracking": "-0.04em" },
+    "hero_mobile": { "size": 40, "lineHeight": 1.04, "weight": 900, "tracking": "-0.035em" },
+    "section_heading": { "size": 40, "lineHeight": 1.1, "weight": 900, "tracking": "-0.03em" },
+    "body": { "size": 18, "lineHeight": 1.6, "weight": 400 },
+    "small": { "size": 14, "lineHeight": 1.5, "weight": 600 }
+  },
+  "layout": {
+    "max_width": 1280,
+    "section_padding_desktop": "64px 32px",
+    "section_padding_mobile": "48px 16px",
+    "card_radius": 24,
+    "button_radius": 999,
+    "grid_gap": 16
+  },
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "sections": [
+        {
+          "id": "header",
+          "type": "sticky-header",
+          "content": {
+            "logo_title": "Golden Cut",
+            "logo_subtitle": "Parturi Espoo",
+            "nav": ["Palvelut", "Hinnasto", "Lahjakortti", "Kuvat", "Sijainti"],
+            "social": "Instagram",
+            "cta": "Tule ilman ajanvarausta"
+          }
+        },
+        {
+          "id": "hero",
+          "type": "split-hero",
+          "content": {
+            "badge": "4.7/5 Google • yli 300 arvostelua",
+            "headline": "Espoon keskuksen luottoparturi — ilman ajanvarausta.",
+            "body": "Nopea, tarkka ja helposti saavutettava miesten parturi Espoon juna-aseman vieressä. Miesten leikkaukset, skin fade, mid fade, taper fade ja partapalvelut reilulla hinnalla.",
+            "primary_cta": "Tule ilman ajanvarausta",
+            "secondary_cta": "Soita 040 058 8484",
+            "facts": ["Ma–la 10–19, su 11–18", "Espoon aseman vieressä", "Pyörätuoliystävällinen sisäänkäynti", "Ilmainen pysäköinti lähellä"],
+            "image_source": "Google Business Profile image from src/data/socialProof.ts"
+          }
+        },
+        {
+          "id": "quick-paths",
+          "type": "three-card-navigation",
+          "cards": [
+            { "title": "Walk-in", "body": "Tule suoraan paikan päälle ilman ajanvarausta.", "cta": "Katso sijainti" },
+            { "title": "Lahjakortti", "body": "Lähetä lahjakorttipyyntö ja Golden Cut ottaa yhteyttä.", "cta": "Lahjakorttilomake" },
+            { "title": "Tuotteet", "body": "Kysy tuotteiden saatavuus ennen käyntiä.", "cta": "Tuotekysely" }
+          ]
+        },
+        {
+          "id": "services",
+          "type": "service-grid",
+          "headline": "Miesten leikkaukset, fade-tyylit ja partapalvelut.",
+          "services": [
+            ["Miesten leikkaus", "alk. 20 €"],
+            ["Skin fade", "alk. 20 €"],
+            ["Mid fade", "alk. 20 €"],
+            ["Taper fade", "alk. 20 €"],
+            ["Parta", "kysy liikkeestä"],
+            ["Lasten leikkaus", "kysy liikkeestä"]
+          ]
+        },
+        {
+          "id": "pricing",
+          "type": "split-pricing",
+          "headline": "Reilu hinta. Tarkka jälki.",
+          "body": "Miesten hiustenleikkaus on ollut noin 20 €. Tarkka hinta vahvistetaan liikkeessä valitun palvelun mukaan."
+        },
+        {
+          "id": "gift-card",
+          "type": "form-section",
+          "headline": "Helppo lahja miehelle, joka arvostaa siistiä tyyliä.",
+          "amounts": ["30 €", "50 €", "75 €", "100 €", "vapaa summa"]
+        },
+        {
+          "id": "products",
+          "type": "product-grid-with-form",
+          "headline": "Parturin suosikkituotteet kotiin.",
+          "products": ["Shaving gel", "Partasaippua", "Partaöljy 30 ml", "Cutrin Shampoo Bio+", "Beard Balm"]
+        },
+        {
+          "id": "gallery",
+          "type": "google-profile-image-section",
+          "headline": "Golden Cut Google-profiilissa.",
+          "body": "Katso liikkeen kuvat, sijainti ja lisätiedot Google-profiilista."
+        },
+        {
+          "id": "reviews",
+          "type": "review-grid",
+          "headline": "4.7/5 Google-arvosana yli 300 arvostelulla.",
+          "reviews": [
+            "Todella nopea ja tarkka tukan leikkaus.",
+            "Laatu pysyy hyvänä kerrasta toiseen.",
+            "Ainoa paikka, johon poika suostuu mielellään parturiin."
+          ]
+        },
+        {
+          "id": "faq",
+          "type": "faq-grid",
+          "questions": ["Tarvitseeko ajanvarauksen?", "Missä liike sijaitsee?", "Mitä palveluita teette?", "Voiko lahjakortin ostaa?"]
+        },
+        {
+          "id": "location",
+          "type": "map-section",
+          "address": "Kirkkojärventie 10 B, 02770 Espoo"
+        },
+        {
+          "id": "contact",
+          "type": "contact-form-section",
+          "phone": "040 058 8484",
+          "hours": "Ma–la 10–19, su 11–18"
+        }
+      ]
+    }
+  ]
+}
