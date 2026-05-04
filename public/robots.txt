@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jamiharju-hash-golden-cut-espoo.vercel.app/sitemap.xml
