@@ -36,6 +36,8 @@
 :root {
   --font-display: 'Bricolage Grotesque', ui-sans-serif, sans-serif;
   --font-body: 'Space Grotesk', ui-sans-serif, sans-serif;
+  --luxury-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --header-offset: 96px;
 }
 
 @layer base {
@@ -45,6 +47,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset);
     font-family: var(--font-body);
     background: #050505;
   }
@@ -59,8 +62,30 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  main > section {
-    scroll-margin-top: 96px;
+  main > section,
+  [id] {
+    scroll-margin-top: var(--header-offset);
+  }
+
+  @media (max-width: 640px) {
+    :root {
+      --header-offset: 84px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 
   ::selection {
@@ -85,6 +110,23 @@
   .font-display {
     font-family: var(--font-display);
     font-variation-settings: "wdth" 92;
+  }
+
+  .luxury-ease {
+    transition-timing-function: var(--luxury-ease);
+  }
+
+  .editorial-image-zoom img {
+    transform: scale(1);
+    transition:
+      transform 10s var(--luxury-ease),
+      filter 10s var(--luxury-ease),
+      opacity 10s var(--luxury-ease);
+    will-change: transform;
+  }
+
+  .editorial-image-zoom:hover img {
+    transform: scale(1.075);
   }
 
   .premium-hero {
