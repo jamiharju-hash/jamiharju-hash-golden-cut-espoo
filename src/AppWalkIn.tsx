@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Clock,
-  Facebook,
   Instagram,
   Mail,
   MapPin,
@@ -375,8 +374,8 @@ function SocialIcons() {
       <a href={instagramUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_instagram", { source: "footer_icons" })} aria-label="Instagram" className="text-white/70 transition hover:text-amber-400">
         <Instagram className="h-5 w-5" />
       </a>
-      <a href={facebookUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_facebook", { source: "footer_icons" })} aria-label="Facebook" className="text-white/70 transition hover:text-amber-400">
-        <Facebook className="h-5 w-5" />
+      <a href={facebookUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_facebook", { source: "footer_icons" })} aria-label="Facebook" className="grid h-5 w-5 place-items-center text-sm font-black leading-none text-white/70 transition hover:text-amber-400">
+        f
       </a>
       <a href={tiktokUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_tiktok", { source: "footer_icons" })} aria-label="TikTok" className="text-white/70 transition hover:text-amber-400">
         <span className="text-lg font-black">♪</span>
