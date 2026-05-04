@@ -3,9 +3,9 @@ import { trackEvent } from "../lib/analytics";
 
 type SubmitState = "idle" | "loading" | "success" | "error";
 
-const inputClass = "w-full rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-400/70";
-const labelClass = "grid gap-2 text-sm font-bold text-zinc-300";
-const buttonClass = "inline-flex min-h-11 w-full items-center justify-center rounded-full bg-amber-400 px-5 py-3 text-sm font-black text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60";
+const inputClass = "w-full rounded-2xl border border-[var(--line)] bg-[var(--ink)] px-4 py-3 text-sm text-[var(--bone)] outline-none transition placeholder:text-[var(--muted)]/60 focus:border-[var(--brass)]";
+const labelClass = "grid gap-2 text-sm font-bold text-[var(--bone)]";
+const buttonClass = "premium-cta inline-flex min-h-11 w-full items-center justify-center rounded-full px-5 py-3 text-sm font-black text-[var(--ink)] transition disabled:cursor-not-allowed disabled:opacity-60";
 
 async function postJson(endpoint: string, body: Record<string, unknown>) {
   const response = await fetch(endpoint, {
@@ -67,7 +67,7 @@ export function GiftCardForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-3xl border border-zinc-800 bg-black p-5">
+    <form onSubmit={onSubmit} className="premium-card grid gap-4 rounded-3xl p-5">
       <div className="grid gap-3 sm:grid-cols-2">
         <label className={labelClass}>Ostajan nimi<input className={inputClass} name="buyerName" required placeholder="Etunimi Sukunimi" /></label>
         <label className={labelClass}>Vastaanottajan nimi<input className={inputClass} name="recipientName" required placeholder="Lahjan saaja" /></label>
@@ -77,14 +77,14 @@ export function GiftCardForm() {
         <label className={labelClass}>Puhelin<input className={inputClass} name="buyerPhone" type="tel" placeholder="040 000 0000" /></label>
       </div>
       <div className="grid gap-2">
-        <span className="text-sm font-bold text-zinc-300">Summa</span>
+        <span className="text-sm font-bold text-[var(--bone)]">Summa</span>
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
           {["30", "50", "75", "100", "custom"].map((value) => (
             <button
               key={value}
               type="button"
               onClick={() => setAmount(value)}
-              className={`rounded-full border px-3 py-2 text-sm font-black transition ${amount === value ? "border-amber-400 bg-amber-400 text-black" : "border-zinc-800 text-zinc-300 hover:border-amber-400/50"}`}
+              className={`rounded-full border px-3 py-2 text-sm font-black transition ${amount === value ? "border-[var(--brass)] bg-[var(--brass)] text-[var(--ink)]" : "border-[var(--line)] text-[var(--muted)] hover:border-[var(--brass-soft)] hover:text-[var(--champagne)]"}`}
             >
               {value === "custom" ? "Muu" : `${value} €`}
             </button>
@@ -126,7 +126,7 @@ export function ProductInterestForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-3xl border border-zinc-800 bg-black p-5">
+    <form onSubmit={onSubmit} className="premium-card grid gap-4 rounded-3xl p-5">
       <div className="grid gap-3 sm:grid-cols-2">
         <label className={labelClass}>Nimi<input className={inputClass} name="name" required placeholder="Etunimi Sukunimi" /></label>
         <label className={labelClass}>Puhelin<input className={inputClass} name="phone" type="tel" placeholder="040 000 0000" /></label>
@@ -175,7 +175,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-3xl border border-zinc-800 bg-black p-5">
+    <form onSubmit={onSubmit} className="premium-card grid gap-4 rounded-3xl p-5">
       <div className="grid gap-3 sm:grid-cols-2">
         <label className={labelClass}>Nimi<input className={inputClass} name="name" required placeholder="Etunimi Sukunimi" /></label>
         <label className={labelClass}>Puhelin<input className={inputClass} name="phone" type="tel" placeholder="040 000 0000" /></label>
